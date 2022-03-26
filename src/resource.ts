@@ -6,7 +6,7 @@ import fs from 'fs'
 import path from 'path'
 
 const keyv = new Keyv()
-const endPoint = 'https://cdn.jsdelivr.net/gh/univeous/koishi-plugin-petpet@master/resources'
+const endPoint = 'https://cdn.jsdelivr.net/gh/univeous/koishi-plugin-petpet@master/assets'
 
 export async function getImage(name: string) {
     return loadImage(await getResource('images', name))
