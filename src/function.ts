@@ -43,7 +43,7 @@ export const petpet: PetPetFunction = async ({ users = [], args = [], }: PetPetF
 
         canvasCtx.drawImage(img, x, y, w, h)
 
-        const hand = await loadImage(path.join(__dirname, `../assets/images/petpet/${index}.png`))
+        const hand = await getImage(`petpet/${index}.png`)
         canvasCtx.drawImage(hand, 0, 0)
 
         frames.push(canvas.toBuffer('png'))
