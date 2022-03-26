@@ -65,14 +65,19 @@ export async function apply(_ctx: Context, cfg: Config) {
 }
 
 async function getUserInfo(session: Session, user: UserInfo) {
-    if (user.avatar.startsWith('http')) {
-        user.avatar = await ctx.http.get(user.avatar, { responseType: 'arraybuffer' })
+    if (!user.userId){
+        if (user.avatar.startsWith('http')) {
+            user.avatar = await ctx.http.get(user.avatar, { responseType: 'arraybuffer' })
+        }
+        return
     }
-    if (!user.userId) return
 
     const userInfo = await session.bot.getUser(user.userId)
     user.nickname = userInfo.nickname ? userInfo.nickname : userInfo.username
     user.avatar = userInfo.avatar
+    if (user.avatar.startsWith('http')) {
+        user.avatar = await ctx.http.get(user.avatar, { responseType: 'arraybuffer' })
+    }
     user.gender = 'male'
 }
 

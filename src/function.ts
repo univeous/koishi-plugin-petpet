@@ -431,7 +431,7 @@ export const loading: PetPetFunction = async ({ users = [], }: PetPetFunctionPar
 
         return canvas.toBuffer('png')
     }
-
+    
     const frame = await makeStatic(base64ToBuffer(users[0].avatar))
 
     const make: MakeFunction = async (imgBuffer: Buffer) => {

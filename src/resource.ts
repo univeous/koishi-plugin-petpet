@@ -20,7 +20,7 @@ export async function getResource(type: string, name: string) {
     if (fs.existsSync(resPath)) {
         return fs.readFileSync(resPath)
     }
-
+    
     const imgBuffer = await ctx.http.get(`${endPoint}/${key}`, { responseType: 'arraybuffer' })
 
     if (config.saveOnDisk) {
