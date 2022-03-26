@@ -1,0 +1,39 @@
+{
+  "name": "koishi-plugin-petpet",
+  "description": "制作头像相关的表情包插件 For koishi",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin"
+  ],
+  "homepage": "https://github.com/univeous/koishi-plugin-petpet",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/univeous/koishi-plugin-petpet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/univeous/koishi-plugin-petpet/issues"
+  },
+  "peerDependencies": {
+    "koishi": "^4.3.1"
+  },
+  "dependencies": {
+    "colord": "^2.9.2",
+    "gifwrap": "^0.9.2",
+    "keyv": "^4.1.1",
+    "sharp": "^0.30.2",
+    "skia-canvas": "^0.9.29"
+  },
+  "devDependencies": {
+    "@types/keyv": "^3.1.4",
+    "@types/sharp": "^0.29.5",
+    "@types/skia-canvas": "^0.9.28"
+  }
+}
