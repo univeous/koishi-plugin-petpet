@@ -10,6 +10,7 @@ interface PetPetFunctionParams {
     sender?: UserInfo,
     args?: string[]
 }
+
 export interface PetPetFunction {
     (params: PetPetFunctionParams): Promise<Buffer | string>
 }
