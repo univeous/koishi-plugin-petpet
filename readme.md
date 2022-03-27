@@ -6,7 +6,7 @@
 
 移植自[nonebot-plugin-petpet](https://github.com/MeetWq/nonebot-plugin-petpet)
 
-原插件中的一些指令尚未实现，欢迎pr。
+此插件仍在开发中，可能存在一些性能问题。
 
 ## 配置项
 | 名字       | 类型    | 默认值 | 描述                                                                     |
