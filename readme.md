@@ -15,6 +15,7 @@
 | saveOnDisk | boolean | true  | 是否将模板图片保存到本地。启用此选项会加快生成速度，但会占用额外的硬盘空间。 |
 | normalFontPath | string | ""  | 字体绝对路径，留空则会自动下载并保存默认字体在本地。 |
 | boldFontPath | string | ""  | 字体绝对路径，留空则会自动下载并保存默认字体在本地。 |
+| repositoryEndpoint | string | "https://cdn.jsdelivr.net/gh/univeous/koishi-plugin-petpet@master/assets"  | 图片、字体等资源的仓库地址。 |
 
 ## 使用
 发送"头像表情包"或"help petpet"查看指令列表。

@@ -9,6 +9,7 @@ export interface Config {
     saveOnDisk?: boolean
     normalFontPath?: string
     boldFontPath?: string
+    repositoryEndpoint?: string
 }
 
 export const name = 'petpet'
@@ -17,7 +18,8 @@ export const Config: Schema<Config> = Schema.object({
     prefix: Schema.string().description('头像表情包的指令前缀。请不要使用"/"。').default('#'),
     saveOnDisk: Schema.boolean().description('是否将模板图片保存到本地。启用此项会加快生成速度，但会占用额外的硬盘空间。').default(true),
     normalFontPath: Schema.string().description('字体绝对路径，留空则会自动下载并保存默认字体在本地。更改后请重启koishi。').default(""),
-    boldFontPath: Schema.string().description('字体绝对路径，留空则会自动下载并保存默认字体在本地。更改后请重启koishi。').default("")
+    boldFontPath: Schema.string().description('字体绝对路径，留空则会自动下载并保存默认字体在本地。更改后请重启koishi。').default(""),
+    repositoryEndpoint: Schema.string().description('图片、字体等资源的仓库地址。').default('https://cdn.jsdelivr.net/gh/univeous/koishi-plugin-petpet@master/assets')
 })
 
 const logger = new Logger(name)

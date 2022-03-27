@@ -6,7 +6,6 @@ import fs from 'fs'
 import path from 'path'
 
 const keyv = new Keyv()
-const endPoint = 'https://cdn.jsdelivr.net/gh/univeous/koishi-plugin-petpet@master/assets'
 
 export async function getImage(name: string) {
     return loadImage(await getResource('images', name))
@@ -21,7 +20,7 @@ export async function getResource(type: string, name: string) {
         return fs.readFileSync(resPath)
     }
     
-    const imgBuffer = await ctx.http.get(`${endPoint}/${key}`, { responseType: 'arraybuffer' })
+    const imgBuffer = await ctx.http.get(`${config.repositoryEndpoint}/${key}`, { responseType: 'arraybuffer' })
 
     if (config.saveOnDisk) {
         fs.mkdirSync(path.dirname(resPath), { recursive: true })
