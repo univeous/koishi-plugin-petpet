@@ -259,7 +259,7 @@ export async function helpImage(commands: PetPetCommand[]) {
 
         const lines = text.split('\n')
 
-        canvasCtx.font = '30px'
+        canvasCtx.font = '30px DEFAULT'
         const width = lines.reduce((acc, line) => Math.max(acc, canvasCtx.measureText(line).width), 0) + padding * 2
         const metrics = canvasCtx.measureText('M')
         const height = lines.length * (metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent) + padding * 2
@@ -268,7 +268,7 @@ export async function helpImage(commands: PetPetCommand[]) {
         canvas.height = height
 
         canvasCtx.fillStyle = 'black'
-        canvasCtx.font = '30px'  // Change canvas size will reset ctx.font
+        canvasCtx.font = '30px DEFAULT'  // Change canvas size will reset ctx.font
         drawMultilineText(canvasCtx, text, padding / 2, metrics.actualBoundingBoxAscent)
 
         return loadImage(await canvas.toBuffer('png'))
