@@ -1,4 +1,4 @@
-import { Context, Logger, s, Schema, segment, Session } from 'koishi'
+import { Context, Logger, Schema, segment, Session } from 'koishi'
 import { commands, makeImage } from './data_source'
 import { PetPetCommand, UserInfo } from './models'
 import { clearRes, deleteFont, loadFonts } from './resource'
@@ -43,7 +43,7 @@ export async function apply(_ctx: Context, cfg: Config) {
 
     loadFonts()
 
-    ctx.command(`petpet ${s('image', { url: 'base64://' + bufferToBase64(await helpImage(commands)) })}`, '摸头等头像相关表情制作').alias('头像表情包')
+    ctx.command(`petpet ${segment('image', { url: 'base64://' + bufferToBase64(await helpImage(commands)) })}`, '摸头等头像相关表情制作').alias('头像表情包')
 
     commands.forEach(command => {
         const cmdName = config.prefix + command.keywords[0]
@@ -60,7 +60,7 @@ export async function apply(_ctx: Context, cfg: Config) {
 
             const result = await makeImage(command, sender, users, args)
 
-            if (typeof result == 'object') return s('image', { url: 'base64://' + bufferToBase64(result) })
+            if (typeof result == 'object') return segment('image', { url: 'base64://' + bufferToBase64(result) })
             return result
         })
     })
