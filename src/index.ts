@@ -3,6 +3,7 @@ import { commands, makeImage } from './data_source'
 import { PetPetCommand, UserInfo } from './models'
 import { clearRes, deleteFont, loadFonts } from './resource'
 import { bufferToBase64, helpImage } from './utils'
+import {} from '@koishijs/plugin-help'
 
 export interface Config {
     prefix?: string
@@ -42,8 +43,9 @@ export async function apply(_ctx: Context, cfg: Config) {
     }
 
     loadFonts()
+    const helpImageBase64 = bufferToBase64(await helpImage(commands))
 
-    ctx.command(`petpet ${segment('image', { url: 'base64://' + bufferToBase64(await helpImage(commands)) })}`, '摸头等头像相关表情制作').alias('头像表情包')
+    ctx.command('petpet', '摸头等头像相关表情制作').alias('头像表情包').action(() => segment('image', { url: `base64://${helpImageBase64}` }))
 
     commands.forEach(command => {
         const cmdName = config.prefix + command.keywords[0]
